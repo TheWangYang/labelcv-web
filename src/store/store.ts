@@ -399,12 +399,15 @@ const store = new Vuex.Store({
                 });
         },
         async login(context, credentials): Promise<void> {
-            console.log("login ~ credentials", credentials);
             return axios.post(
                 "/login",
                 credentials,
                 this.state.axiosRequestConfig
             );
+        },
+        async upload(context, files): Promise<void> {
+            console.log("login ~ files", files);
+            return axios.post("/upload", files, this.state.axiosRequestConfig);
         }
     },
     modules: {}
